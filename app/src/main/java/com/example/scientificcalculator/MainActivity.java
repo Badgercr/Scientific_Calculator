@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
                 calc.inputDecimal();
             }
         });
+        findViewById(R.id.equal).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                calc.inputEqual();
+            }
+        });
         findViewById(R.id.negative).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 calc.inputSign();
@@ -90,11 +95,20 @@ public class MainActivity extends AppCompatActivity {
                 calc.inputAddition();
             }
         });
-        findViewById(R.id.equal).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.subtraction).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                calc.inputEqual();
+
             }
         });
+        findViewById(R.id.multiplication).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+            }
+        });
+        findViewById(R.id.division).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+            }
+        });
+
 
 
 

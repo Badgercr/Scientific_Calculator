@@ -137,6 +137,8 @@ public class Calculator {
     }
     public void clear(){
         workspace.setText("0");
+        firstNum = 0.0;
+        lastNum = 0.0;
 
     }
     public void inputDecimal(){
@@ -158,24 +160,20 @@ public class Calculator {
     }
     public void inputAddition(){
         operation = 1;
-        if (firstNum == null){
-            firstNum = Double.valueOf(workspace.getText().toString());
-        }
-        else{
-            lastNum = Double.valueOf(workspace.getText().toString());
-        }
+        firstNum = Double.valueOf(workspace.getText().toString());
+        workspace.setText("");
 
     }
     public void inputEqual(){
         double result;
-        workspace.setText("hey");
-        /*switch (operation){
-            case 1:
-                result = firstNum + lastNum;
-                firstNum = result;
-                //df.format(result);
-                workspace.setText("hey");
-        }*/
+
+        if (operation == 1) {
+            lastNum = Double.valueOf(workspace.getText().toString());
+            result = firstNum + lastNum;
+            //firstNum = result;
+            df.format(result);
+            workspace.setText(String.valueOf(result));
+        }
     }
 
 
