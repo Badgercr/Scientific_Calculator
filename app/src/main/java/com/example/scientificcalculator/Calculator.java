@@ -23,7 +23,7 @@ public class Calculator {
     }
     //----------------------------functions----------------------------//
     public void input0(){
-        if (workspace.length() == 9){
+        if (workspace.length() == 10){
             return;
         }
         else if (workspace.length() == 1 & workspace.getText().toString().equals("0")){
@@ -35,7 +35,7 @@ public class Calculator {
         }
     }
     public void input1(){
-        if (workspace.length() == 9){
+        if (workspace.length() == 10){
             return;
         }
         else if (workspace.length() == 1 & workspace.getText().toString().equals("0")){
@@ -164,15 +164,67 @@ public class Calculator {
         workspace.setText("");
 
     }
+    public void inputSubtraction(){
+        operation = 2;
+        firstNum = Double.valueOf(workspace.getText().toString());
+        workspace.setText("");
+    }
+    public void inputMultiplication(){
+        operation = 3;
+        firstNum = Double.valueOf(workspace.getText().toString());
+        workspace.setText("");
+    }
+    public void inputDivision(){
+        operation = 4;
+        firstNum = Double.valueOf(workspace.getText().toString());
+        workspace.setText("");
+    }
     public void inputEqual(){
         double result;
 
         if (operation == 1) {
             lastNum = Double.valueOf(workspace.getText().toString());
-            result = firstNum + lastNum;
-            //firstNum = result;
-            df.format(result);
-            workspace.setText(String.valueOf(result));
+            try{
+                result = firstNum + lastNum;
+                df.format(result);
+                workspace.setText(String.valueOf(result));
+            } catch (ArithmeticException e){
+                workspace.setText("Error");
+            }
+
+        }
+        else if (operation == 2){
+            lastNum = Double.valueOf(workspace.getText().toString());
+            try{
+                result = firstNum - lastNum;
+                df.format(result);
+                workspace.setText(String.valueOf(result));
+            } catch (ArithmeticException e){
+                workspace.setText("Error");
+            }
+        }
+        else if (operation == 3){
+            lastNum = Double.valueOf(workspace.getText().toString());
+            try{
+                result = firstNum * lastNum;
+                df.format(result);
+                workspace.setText(String.valueOf(result));
+            } catch (ArithmeticException e){
+                workspace.setText("Error");
+            }
+        }
+        else if (operation == 4){
+            lastNum = Double.valueOf(workspace.getText().toString());
+            try{
+                result = firstNum / lastNum;
+                if (result == Double.POSITIVE_INFINITY ||
+                        result == Double.NEGATIVE_INFINITY || Double.isNaN(result))
+                    throw new ArithmeticException();
+                df.format(result);
+                workspace.setText(String.valueOf(result));
+            } catch (ArithmeticException e){
+                workspace.setText("Error");
+            }
         }
     }
 

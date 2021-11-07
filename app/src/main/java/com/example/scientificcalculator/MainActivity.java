@@ -97,15 +97,17 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.subtraction).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-
+                calc.inputSubtraction();
             }
         });
         findViewById(R.id.multiplication).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
+                calc.inputMultiplication();
             }
         });
         findViewById(R.id.division).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
+                calc.inputDivision();
             }
         });
 
