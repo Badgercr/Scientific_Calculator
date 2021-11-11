@@ -8,16 +8,17 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     int i;
     TextView workspace;
+    TextView equation_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //set MainActivity to your layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //create calculator object and connect workspace to layout workspace and initialize to 0
-        final Calculator calc = new Calculator(findViewById(R.id.input_view));
+        final Calculator calc = new Calculator(findViewById(R.id.input_view), findViewById(R.id.equation_view)); //  passing in another workspace for the textview that shows the equation
 
         /*
-        Initialize the workspace your calc instance
+        Initialize the workspace your calc instance and setting up all the click listeners
         */
         findViewById(R.id.clear).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
@@ -110,19 +111,32 @@ public class MainActivity extends AppCompatActivity {
                 calc.inputDivision();
             }
         });
+        findViewById(R.id.percentage).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                calc.inputPercentage();
+            }
+        });
+        findViewById(R.id.square_root).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                calc.inputSquareRoot();
+            }
+        });
+        findViewById(R.id.square).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                calc.inputSquare();
+            }
+        });
+        findViewById(R.id.power_to).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                calc.powerTo();
+            }
+        });
+        findViewById(R.id.natural_log).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                calc.naturalLog();
+            }
+        });
 
-
-
-
-        /*
-        add proper click listener to each button
-         for example clear button
-                findViewById(R.id.clear_button).setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View v) {
-                        calc.clear();
-                    }
-                });
-        */
 
 
     }
